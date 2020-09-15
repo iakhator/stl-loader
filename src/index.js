@@ -16,22 +16,12 @@ import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js';
 
   const loader = new STLLoader();
 
-  loader.load( 'https://threejs.org/examples/models/stl/binary/pr2_head_pan.stl', function ( geometry ) {
-    var material = new THREE.MeshLambertMaterial( { opacity: 1, vertexColors: true } );
-    var mesh = new THREE.Mesh( geometry, material );
-    mesh.position.set( 0, 0, 0);
-    scene.add( mesh );
+  loader.load( '../models/stl/pr2_head_pan.stl', function ( geometry ) {
+    console.log(geometry)
+    var material = new THREE.MeshNormalMaterial({visible: true});
+    var mesh = new THREE.Mesh(geometry, material);
+    scene.add(mesh);
+    renderer.render(scene, camera);
   });
   
-  camera.position.z = 5;
-  // camera.position.y = 100;
-
-  function animate() {
-    // requestAnimationFrame( animate );
-    // cube.rotation.x += 0.01;
-    // cube.rotation.y += 0.01;
-    renderer.render( scene, camera );
-  }
-
-  animate()
 })()
