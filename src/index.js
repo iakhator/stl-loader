@@ -14,15 +14,13 @@ import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js';
   // const cube = new THREE.Mesh( geometry, material );
   // scene.add( cube );
 
-  const loader = new STLLoader();
-  // console.log(loader)
-
-  // loader.load( '../models/stl/pr2_head_pan.stl', function ( geometry ) {
-  //   console.log(geometry)
-  //   var material = new THREE.MeshNormalMaterial({visible: true});
-  //   var mesh = new THREE.Mesh(geometry, material);
-  //   scene.add(mesh);
-  //   renderer.render(scene, camera);
-  // });
+  const stlLoader = new STLLoader();
+  stlLoader.load('https://rushlabel.s3.us-east-2.amazonaws.com/models/stl/marketing_concept_v18.stl', function ( geometry ) {
+    console.log(geometry)
+    var material = new THREE.MeshPhongMaterial({ opacity: geometry.alpha, vertexColors: true });
+    var mesh = new THREE.Mesh(geometry, material);
+    scene.add(mesh);
+    renderer.render(scene, camera);
+  });
   
 })()
