@@ -15,13 +15,14 @@ import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js';
   // scene.add( cube );
 
   const loader = new STLLoader();
+  // console.log(loader)
 
-  loader.load( '../models/stl/pr2_head_pan.stl', function ( geometry ) {
-    console.log(geometry)
-    var material = new THREE.MeshNormalMaterial({visible: true});
-    var mesh = new THREE.Mesh(geometry, material);
-    scene.add(mesh);
-    renderer.render(scene, camera);
-  });
+  // loader.load( '../models/stl/pr2_head_pan.stl', function ( geometry ) {
+  //   console.log(geometry)
+  //   var material = new THREE.MeshNormalMaterial({visible: true});
+  //   var mesh = new THREE.Mesh(geometry, material);
+  //   scene.add(mesh);
+  //   renderer.render(scene, camera);
+  // });
   
 })()
